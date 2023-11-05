@@ -1,0 +1,104 @@
+[
+    {
+        "title": "GAT-X102 Duel Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/f/f6/Duel_Gundam_%28Front%29_01.png",
+            "https://static.wikia.nocookie.net/gundam/images/3/39/Gat-x102-back.jpg",
+            "https://static.wikia.nocookie.net/gundam/images/7/7f/Duel_Gundam_Assault_Shroud_%28Front%29_01.png",
+            "https://static.wikia.nocookie.net/gundam/images/3/36/Duel_Gundam_Assault_Shroud_%28Rear%29_01.png"
+        ]
+    },
+    {
+        "title": "GAT-X103 Buster Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/8/8e/Buster_Gundam_%28Front%29_01.png",
+            "https://static.wikia.nocookie.net/gundam/images/b/b6/Buster_Gundam_%28Rear%29_01.png"
+        ]
+    },
+    {
+        "title": "GAT-X303 Aegis Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/9/94/Aegis_Gundam_%28Front%29.png",
+            "https://static.wikia.nocookie.net/gundam/images/3/38/Aegis_Gundam_%28Rear%29.png",
+            "https://static.wikia.nocookie.net/gundam/images/e/e1/Gat-x303-ma.jpg",
+            "https://static.wikia.nocookie.net/gundam/images/8/84/Gat-x303-ma-attack.jpg"
+        ]
+    },
+    {
+        "title": "GAT-X105 Strike Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/e/ea/Strike_gundam_front_lineart_color.png",
+            "https://static.wikia.nocookie.net/gundam/images/7/70/Strike_gundam_rear_lineart_color.png"
+        ]
+    },
+    {
+        "title": "GAT-X105+AQM/E-X01 Aile Strike Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/5/57/Aile_strike_gundam_front_lineart_color.png",
+            "https://static.wikia.nocookie.net/gundam/images/f/f3/Aile_Strike_Gundam_%28Rear%29_01.png"
+        ]
+    },
+    {
+        "title": "GAT-X105+AQM/E-X02 Sword Strike Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/9/92/Sword_strike_gundam_front_lineart_color.png",
+            "https://static.wikia.nocookie.net/gundam/images/a/a7/Swordstrike-back.jpg"
+        ]
+    },
+    {
+        "title": "GAT-X105+AQM/E-X03 Launcher Strike Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/c/c7/Launcher_strike_gundam_front_lineart_color.png/"
+        ]
+    },
+    {
+        "title": "GAT-X105+AQM/E-YM1 Perfect Strike Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/e/ec/Perfect_strike_gundam_front_lineart_color.png",
+            "https://static.wikia.nocookie.net/gundam/images/7/77/Perfect_Strike_rear.png"
+        ]
+    },
+    {
+        "title": "GAT-X207 Blitz Gundam",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/f/fe/GAT-X207_Blitz_Gundam_Front.png",
+            "https://static.wikia.nocookie.net/gundam/images/a/a4/GAT-X207_Blitz_Gundam_Rear.png"
+        ]
+    },
+    {
+        "title": "GN-001 Gundam Exia",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/d/d9/GN-001_%28Front%29.png",
+            "https://static.wikia.nocookie.net/gundam/images/4/4c/GN-001_%28Rear%29.png",
+            "https://static.wikia.nocookie.net/gundam/images/8/81/Gn-001-rollout.jpg",
+            "https://static.wikia.nocookie.net/gundam/images/e/e5/GN-001_-_Gundam_Exia_-_Rollout_Colors_-_Back_View.jpg"
+        ]
+    },
+    {
+        "title": "GN-002 Gundam Dynames",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/4/4c/Gundam_Dynames_%28Front%29_01.png",
+            "https://static.wikia.nocookie.net/gundam/images/7/76/Gundam_Dynames_%28Rear%29_01.png"
+        ]
+    },
+    {
+        "title": "GN-003 Gundam Kyrios",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/6/6d/GN-003_Kyrios.png",
+            "https://static.wikia.nocookie.net/gundam/images/0/08/Kyrios_Rear.png"
+        ]
+    },
+    {
+        "title": "GN-004 Gundam Nadleeh",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/2/21/Gn-004_1.jpg",
+            "https://static.wikia.nocookie.net/gundam/images/a/ae/GN-004_-_Gundam_Nadleeh_-_Back_View.jpg"
+        ]
+    },
+    {
+        "title": "GN-005 Gundam Virtue",
+        "images": [
+            "https://static.wikia.nocookie.net/gundam/images/1/1e/Gundam_Virtue_%28Front%29_01.png"
+        ]
+    }
+]
