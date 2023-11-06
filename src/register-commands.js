@@ -1,5 +1,5 @@
 const { REST, Routes } = require('discord.js');
-const { clientId, guildId, token } = require('./config.json');
+const { devClientId, prodClientId, devGuildId, supportGuildId, devToken, prodToken } = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -25,25 +25,65 @@ for (const folder of commandFolders) {
 	}
 }
 
-// Construct and prepare an instance of the REST module
-const rest = new REST().setToken(token);
+// let rest;
+// process.argv.forEach(arg => {
+// 	if (arg === '--dev') {
+// 		rest = new REST().setToken(devToken);
+// 	} else if (arg === '--prod') {
+// 		rest = new REST().setToken(prodToken);
+// 	}
+// });
 
-// and deploy your commands!
-(async () => {
+// // Construct and prepare an instance of the REST module
+// // const rest = new REST().setToken(token);
+
+// // and deploy your commands!
+// (async () => {
+// 	try {
+// 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
+
+// 		// The put method is used to fully refresh all commands in the guild with the current set
+// 		const data = await rest.put(		
+// 			Routes.applicationGuildCommands(clientId, guildId),
+// 			// Routes.applicationCommands(clientId),
+// 			{ body: commands },
+// 		);
+
+// 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+// 	}
+// 	catch (error) {
+// 		// And of course, make sure you catch and log any errors!
+// 		console.error(error);
+// 	}
+// })();
+
+// Function to deploy commands
+async function deployCommands(token, clientId, guildId = null) {
+	const rest = new REST().setToken(token);
+
 	try {
 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(
 			Routes.applicationGuildCommands(clientId, guildId),
-			// Routes.applicationCommands(clientId),
 			{ body: commands },
 		);
 
 		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
-	}
-	catch (error) {
-		// And of course, make sure you catch and log any errors!
+	} catch (error) {
+		// Catch and log any errors
 		console.error(error);
 	}
-})();
+}
+
+// Determine the environment and deploy commands accordingly
+process.argv.forEach(arg => {
+	if (arg === '--dev') {
+		deployCommands(devToken, devClientId, devGuildId);
+	} else if (arg === '--prod') {
+		deployCommands(prodToken, prodClientId, supportGuildId);
+	} else if (arg === '--global'){
+		deployCommands(prodToken, prodClientId);
+	}
+});

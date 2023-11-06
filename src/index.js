@@ -2,13 +2,24 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, Options } = require('discord.js');
-const { token } = require('./config.json');
+// const { devToken, prodToken } = require('./config.json');
 
 // Initialize a new Discord client instance with the specified intents.
-const client = new Client({ 
+const client = new Client({
 	intents: [GatewayIntentBits.Guilds],
-	sweepers: Options.DefaultSweeperSettings,
- });
+	sweepers: {
+		// Configure sweepers here
+		messages: {
+			interval: 900, // Sweep every 15 minutes
+			lifetime: 0, // Only sweep messages that are 1 hour old or older
+		},
+		users: {
+			interval: 900, // Sweep every 15 minutes
+			// filter: () => user => user.bot && user.id !== client.user.id, // Remove all bots.
+			filter: () => () => true, // Remove all users.
+		},
+	}
+});
 
 // Initialize a new collection to store commands.
 client.commands = new Collection();
@@ -24,14 +35,14 @@ for (const folder of commandFolders) {
 	const commandsPath = path.join(foldersPath, folder);
 	// Read all JavaScript files within the command folder.
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-	
+
 	// Iterate through each command file.
 	for (const file of commandFiles) {
 		// Define the full path for each command file.
 		const filePath = path.join(commandsPath, file);
 		// Require (import) the command module.
 		const command = require(filePath);
-		
+
 		// Check if the command has the required 'data' and 'execute' properties.
 		if ('data' in command && 'execute' in command) {
 			// Add the command to the client's command collection.
@@ -55,7 +66,7 @@ for (const file of eventFiles) {
 	const filePath = path.join(eventsPath, file);
 	// Require (import) the event module.
 	const event = require(filePath);
-	
+
 	// Check if the event should be handled once or multiple times.
 	if (event.once) {
 		// Handle the event once if specified.
@@ -68,4 +79,37 @@ for (const file of eventFiles) {
 }
 
 // Log the client in using the specified token from the config file.
-client.login(token);
+process.argv.forEach(arg => {
+	if (arg === '--dev') {
+		const { token, version } = require('./configDev.json');
+
+		client.login(token);
+		client.once('ready', () => {
+			client.user.setPresence({
+				activities: [{
+					name: "Development Mode",
+					state: `v${version}`,
+					type: 4,
+				}],
+				status: 'dnd',
+			});
+		});
+	} else if (arg === '--prod') {
+		const { token, version } = require('./configDev.json');
+
+		client.login(token);
+		client.once('ready', () => {
+			client.user.setPresence({
+				activities: [{
+					name: "Production Mode",
+					state: `v${version}`,
+					type: 4,
+				}],
+				status: 'dnd',
+			});
+		});
+	}
+});
+
+// Log the client in using the specified token from the config file.
+// client.login(token);
