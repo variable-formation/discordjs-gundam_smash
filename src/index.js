@@ -95,7 +95,7 @@ process.argv.forEach(arg => {
 			});
 		});
 	} else if (arg === '--prod') {
-		const { token, version } = require('./configDev.json');
+		const { token, version } = require('./configProd.json');
 
 		client.login(token);
 		client.once('ready', () => {
