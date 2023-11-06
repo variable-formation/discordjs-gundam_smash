@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, Options } = require('discord.js');
-const { devToken, prodToken } = require('./config.json');
+// const { devToken, prodToken } = require('./config.json');
 
 // Initialize a new Discord client instance with the specified intents.
 const client = new Client({
@@ -81,19 +81,33 @@ for (const file of eventFiles) {
 // Log the client in using the specified token from the config file.
 process.argv.forEach(arg => {
 	if (arg === '--dev') {
-		client.login(devToken);
+		const { token, version } = require('./configDev.json');
+
+		client.login(token);
 		client.once('ready', () => {
 			client.user.setPresence({
 				activities: [{
-					name: 'with code',
-					state: 'in development',
+					name: "Development Mode",
+					state: `v${version}`,
 					type: 4,
 				}],
 				status: 'dnd',
 			});
 		});
 	} else if (arg === '--prod') {
-		client.login(prodToken);
+		const { token, version } = require('./configDev.json');
+
+		client.login(token);
+		client.once('ready', () => {
+			client.user.setPresence({
+				activities: [{
+					name: "Production Mode",
+					state: `v${version}`,
+					type: 4,
+				}],
+				status: 'dnd',
+			});
+		});
 	}
 });
 
