@@ -14,6 +14,7 @@ discordjs-gundam_smash
 ├── LICENSE
 ├── changelogs
 │ └── 1-0-0-beta.md
+│ └── 1-1-0-beta.md
 ├── package-lock.json
 ├── package.json
 └── src
