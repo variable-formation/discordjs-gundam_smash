@@ -51,5 +51,6 @@ This project is licensed under the `Unlicense`. For more information, see the [L
 
 ## Contributing
 If you'd like to contribute, feel free to fork the repository, make your changes, and submit a pull request. If you have any questions, don't hesitate to reach out!
----
+
+
 Check out the support server [here](https://discord.gg/Vdd5r7sq)!
