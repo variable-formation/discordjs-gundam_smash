@@ -1,11 +1,14 @@
 // Import required modules.
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, Options } = require('discord.js');
 const { token } = require('./config.json');
 
 // Initialize a new Discord client instance with the specified intents.
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ 
+	intents: [GatewayIntentBits.Guilds],
+	sweepers: Options.DefaultSweeperSettings,
+ });
 
 // Initialize a new collection to store commands.
 client.commands = new Collection();
