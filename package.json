@@ -1,14 +1,11 @@
 {
   "name": "discordjs-gundam_smash",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.0-beta",
+  "description": "The source code for the `Gundam Smash!` Discord bot.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Katherine Diane Oglesby",
+  "license": "Unlicense",
   "dependencies": {
     "discord.js": "^14.13.0",
     "sqlite3": "^5.1.6"
