@@ -9,7 +9,7 @@ NETWORK_THRESHOLD = 10 * 1024 * 1024  # 10 MB/s
 
 
 # Discord Webhook URL
-DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/...'
+DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1170977195494219866/_UCQFpAMJndLNUJmIBL86_vbDbfiJYXdbFVwPG1Xj4yMg3dUahsS6E6dNGIKjTgU2AKW'
 
 # Interval between checks (in seconds)
 CHECK_INTERVAL = 5
