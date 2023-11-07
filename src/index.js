@@ -9,9 +9,10 @@ const client = new Client({
 	intents: [GatewayIntentBits.Guilds],
 	sweepers: {
 		// Configure sweepers here
+		...Options.DefaultSweeperSettings,
 		messages: {
 			interval: 900, // Sweep every 15 minutes
-			lifetime: 0, // Only sweep messages that are 1 hour old or older
+			lifetime: 3600, // Only sweep messages that are 1 hour old or older
 		},
 		users: {
 			interval: 900, // Sweep every 15 minutes
@@ -79,6 +80,8 @@ for (const file of eventFiles) {
 }
 
 // Log the client in using the specified token from the config file.
+process.name = 'gundam-smash';
+process.title = 'gundam-smash';
 process.argv.forEach(arg => {
 	if (arg === '--dev') {
 		const { token, version } = require('./configDev.json');
