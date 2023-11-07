@@ -84,6 +84,8 @@ process.name = 'gundam-smash';
 process.title = 'gundam-smash';
 process.argv.forEach(arg => {
 	if (arg === '--dev') {
+		process.name = 'gundam-smash-dev';
+		process.title = 'gundam-smash-dev';
 		const { token, version } = require('./configDev.json');
 
 		client.login(token);
@@ -99,6 +101,8 @@ process.argv.forEach(arg => {
 		});
 	} else if (arg === '--prod') {
 		const { token, version } = require('./configProd.json');
+		process.name = 'gundam-smash-prod';
+		process.title = 'gundam-smash-prod';
 
 		client.login(token);
 		client.once('ready', () => {
