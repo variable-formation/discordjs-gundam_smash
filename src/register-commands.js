@@ -1,5 +1,4 @@
 const { REST, Routes } = require('discord.js');
-const { devClientId, prodClientId, devGuildId, supportGuildId, devToken, prodToken } = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -58,32 +57,47 @@ for (const folder of commandFolders) {
 // })();
 
 // Function to deploy commands
-async function deployCommands(token, clientId, guildId = null) {
+async function deployCommands(commands, token, clientId, guildId = 0) {
 	const rest = new REST().setToken(token);
 
-	try {
-		console.log(`Started refreshing ${commands.length} application (/) commands.`);
+	(async () => {
+		try {
+			console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
-		// The put method is used to fully refresh all commands in the guild with the current set
-		const data = await rest.put(
-			Routes.applicationGuildCommands(clientId, guildId),
-			{ body: commands },
-		);
+			let data;
+			// The put method is used to fully refresh all commands in the guild with the current set
+			if (guildId === 0) {
+				data = await rest.put(
+					Routes.applicationCommands(clientId),
+					{ body: commands },
+				);
+			} else {
+				data = await rest.put(
+					Routes.applicationGuildCommands(clientId, guildId),
+					{ body: commands },
+				);
+			}
 
-		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
-	} catch (error) {
-		// Catch and log any errors
-		console.error(error);
-	}
+			console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+		} catch (error) {
+			// Catch and log any errors
+			console.error(error);
+		}
+	})();
 }
-
 // Determine the environment and deploy commands accordingly
 process.argv.forEach(arg => {
 	if (arg === '--dev') {
-		deployCommands(devToken, devClientId, devGuildId);
+		const { token, clientId, guildId } = require('./configDev.json');
+
+		deployCommands(commands, token, clientId, guildId);
 	} else if (arg === '--prod') {
-		deployCommands(prodToken, prodClientId, supportGuildId);
+		const { token, clientId, guildId } = require('./configProd.json');
+
+		deployCommands(commands, token, clientId, guildId);
 	} else if (arg === '--global'){
-		deployCommands(prodToken, prodClientId);
+		const { token, clientId, guildId } = require('./configProd.json');
+
+		deployCommands(commands, token, clientId, 0);
 	}
 });
