@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor system resource usage and fire off alerts to Discord if usage exceed certain values.
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/usr/bin/python3 /usr/local/bin/monitor.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
