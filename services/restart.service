@@ -1,0 +1,13 @@
+[Unit]
+Description=Check and see if Gundam Smash! is running, and if it isn't attempt to restart it. 
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/usr/bin/python3 /usr/local/bin/restart.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
